@@ -23,6 +23,7 @@ RUN apt-get update -y && \
     erln8/reo --build 2.6.0 && \
     mv  /root/.erln8.d/rebars/2.6.0/rebar  /opt/erlang/bin/ && \
     rm -rf /root/.erln8.d && \
+    rm -rf /root/erln8/ && \
     rm -rf /tmp/* && \
     apt-get purge -y \
     build-essential gawk m4 autoconf \
