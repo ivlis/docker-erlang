@@ -23,6 +23,9 @@ RUN apt-get update -y && \
     cp -a /root/.erln8.d/otps/${ERLANG_VER}/dist/bin /opt/erlang/ && \
     cp -a /root/.erln8.d/otps/${ERLANG_VER}/dist/lib /opt/erlang/ && \
     sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/bin/erl && \
+    sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/bin/erl && \
+    sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/bin/start && \
+    sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/releases/RELEASES && \
     erln8/reo --build ${REBAR_VER} && \
     mv  /root/.erln8.d/rebars/${REBAR_VER}/rebar  /opt/erlang/bin/ && \
     rm -rf /root/.erln8.d && \
