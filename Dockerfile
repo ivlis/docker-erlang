@@ -50,6 +50,24 @@ RUN erln8/erln8 --build ${ERLANG_VER} --config=min &&\
 RUN rm -rf /root/.erln8.d && \
     rm -rf /root/erln8/ && \
     rm -rf /tmp/*
+
+RUN apk del curl \
+      ca-certificates \
+      bash \
+      git \
+      openssl-dev \
+      readline-dev \
+      bzip2-dev \
+      sqlite-dev \
+      linux-headers \
+      autoconf \
+      gawk \
+      m4 \
+      openssh \
+      bash \
+      tar \
+      build-base && \
+      rm -rf /var/cache/apk/*
 #    apt-get purge -y \
 #    build-essential gawk m4 autoconf \
 #    git-core ca-certificates wget \
