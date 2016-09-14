@@ -35,21 +35,21 @@ RUN apk add --update curl \
 
 RUN tar -zxvf erln8_ubuntu1404.tgz
 RUN /bin/bash /root/install-erln8.sh
-# RUN erln8/erln8 --build ${ERLANG_VER} --config=min &&\
-#      mkdir -p /opt/erlang/ && \
-#      cp -a /root/.erln8.d/otps/${ERLANG_VER}/dist/bin /opt/erlang/ && \
-#      cp -a /root/.erln8.d/otps/${ERLANG_VER}/dist/lib /opt/erlang/ && \
-#      sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/bin/erl && \
-#      sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/bin/erl && \
-#      sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/bin/start && \
-#      sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/releases/RELEASES && \
-#      sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/erts-*/bin/erl && \
-#      sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/erts-*/bin/start && \
-#      erln8/reo --build ${REBAR_VER} && \
-#      mv  /root/.erln8.d/rebars/${REBAR_VER}/rebar  /opt/erlang/bin/
-#     rm -rf /root/.erln8.d && \
-#     rm -rf /root/erln8/ && \
-#     rm -rf /tmp/*
+RUN erln8/erln8 --build ${ERLANG_VER} --config=min &&\
+     mkdir -p /opt/erlang/ && \
+     cp -a /root/.erln8.d/otps/${ERLANG_VER}/dist/bin /opt/erlang/ && \
+     cp -a /root/.erln8.d/otps/${ERLANG_VER}/dist/lib /opt/erlang/ && \
+     sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/bin/erl && \
+     sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/bin/erl && \
+     sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/bin/start && \
+     sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/releases/RELEASES && \
+     sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/erts-*/bin/erl && \
+     sed -e "s|/root/.erln8.d/otps/${ERLANG_VER}/dist|/opt/erlang|g" -i /opt/erlang/lib/erlang/erts-*/bin/start && \
+     erln8/reo --build ${REBAR_VER} && \
+     mv  /root/.erln8.d/rebars/${REBAR_VER}/rebar  /opt/erlang/bin/
+RUN rm -rf /root/.erln8.d && \
+    rm -rf /root/erln8/ && \
+    rm -rf /tmp/*
 #    apt-get purge -y \
 #    build-essential gawk m4 autoconf \
 #    git-core ca-certificates wget \
