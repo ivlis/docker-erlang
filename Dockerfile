@@ -6,7 +6,7 @@ COPY scripts/* /root/
 
 WORKDIR /root
 
-ENV ERLANG_VER OTP-18.0.3
+ENV ERLANG_VER OTP-18.3.3
 ENV REBAR_VER 2.6.0
 
 ENV PATH /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/erlang/bin/
@@ -39,5 +39,3 @@ RUN apt-get update -y && \
     libncurses-dev libssl-dev && \
     apt-get autoremove -y && \
     apt-get clean
-
-
